@@ -25,6 +25,28 @@ function hitungTotal() {
   }
   return total;
 }
+function tambahTitik(total) {
+  let strTotal = String(total);
+  let result = "";
+  let countChar = 0;
+  for (let i = strTotal.length - 1; i >= 0; i--) {
+    if (countChar === 3) {
+      result += ".";
+      result += strTotal[i];
+      countChar = 1;
+    } else {
+      result += strTotal[i];
+      countChar++;
+    }
+  }
+
+  let reversedResult = "";
+  for (let i = result.length - 1; i >= 0; i--) {
+    reversedResult += result[i];
+  }
+  return reversedResult;
+}
+
 function renderData() {
   let list = document.getElementById("list");
   let tampilan = "";
@@ -40,7 +62,7 @@ function renderData() {
         <td>${elemen.paket}</td>
         <td>${elemen.tanggal}</td>
         <td>${elemen.jam}</td>
-        <td>${harga}</td>
+        <td>${tambahTitik(harga)}</td>
         <td>
           <div class="">
             <button onclick="edit(${elemen.id})">Edit</button>
@@ -52,9 +74,10 @@ function renderData() {
 
   list.innerHTML = tampilan;
 
-  // let total = document.getElementById("total");
-  // let hasilTotal = hitungTotal();
-  // total.innerText = `${hasilTotal}`;
+  let total = document.getElementById("total");
+  let hasilTotal = hitungTotal();
+  hasilTotal = tambahTitik(hasilTotal);
+  total.innerText = `Total Pendapatan Rp. ${hasilTotal}`;
 }
 function add() {
   //find last id

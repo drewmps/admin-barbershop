@@ -52,9 +52,9 @@ function renderData() {
 
   list.innerHTML = tampilan;
 
-  let total = document.getElementById("total");
-  let hasilTotal = hitungTotal();
-  total.innerText = `${hasilTotal}`;
+  // let total = document.getElementById("total");
+  // let hasilTotal = hitungTotal();
+  // total.innerText = `${hasilTotal}`;
 }
 function add() {
   //find last id

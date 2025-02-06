@@ -77,3 +77,21 @@
 .btn-danger:hover {
   background-color: #b02a37;
 }
+
+/* Efek Fade-in */
+.fade-in {
+  opacity: 0;
+  /* Mulai dari transparan */
+  animation: fadeInAnimation 3s ease-in forwards;
+}
+
+/* Animasi fade-in */
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 2;
+  }
+}
